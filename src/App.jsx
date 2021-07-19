@@ -9,6 +9,7 @@ const App = () => {
       <GlobalStyle />
       <Header />
       <Footer />
+      
     </div>
   )
 }
