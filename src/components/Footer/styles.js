@@ -27,16 +27,16 @@ export const H2Middle = styled(H2)`
     flex-grow: 1;
     position: relative;
     text-align: center;
-    color: #fbfbfb;
+    color: #FED5BA;
     &:after {
         background-color: #fbfbfb;
         content: '';
         display: block;
-        height: .125em;
+        height: .050em;
         position: absolute;
         left: 2.5em;
         right: 2.5em;
-        top: 55%;
+        top: 54%;
         width: auto;
     }
 `
