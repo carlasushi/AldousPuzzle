@@ -15,6 +15,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 `
+//reusing on header and footer
 export const Marginals = css `
   box-sizing: border-box;
   display: flex;
@@ -27,6 +28,7 @@ export const ImageContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   position: relative;
+  // resized image to fit the grid 
   height: 600px;
   width: 450px;
 `

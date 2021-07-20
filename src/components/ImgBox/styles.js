@@ -5,9 +5,10 @@ export const Image = styled.div `
     background-size: 450px 600px;
     height: 6.25em;
     width: 6.25em;
-    border-radius: 1.8em;
+    // border-radius: 30px;
     position: relative;
-    background-position: ${({$initialX,$initialY}) => 
-    `-${$initialX * 100}px -${$initialY*100}px`};
+    //rendering inside the grid, breaking up img equally
+    background-position: ${({$initialX,$initialY}) => `
+    -${$initialX * 100}px -${$initialY * 100}px`};
     `
 
