@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {Footer, H2, H2Middle} from './styles'
 // import FetchRandomQuote from './quote'
 
