@@ -1,4 +1,4 @@
-import React, {userState} from 'react'
+import React, {useState} from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import ImgBox from './components/ImgBox'
@@ -17,7 +17,7 @@ const matrix = [
 const App = () => {
 //init
 const [distance, setDistance] = useState(1)
-// from  https://easings.net/
+// from  https://easings.net/#easeInCubic
 const easing = (num) => Math.pow(num,3)
 
 const calculateDistance = ([x,y]) => {
@@ -36,7 +36,7 @@ const calculateDistance = ([x,y]) => {
 
 // events move and touch
 const handleMove = ({clientX, clientY}) => {
-  calculateDistance(clientX, clientY)
+  calculateDistance([clientX, clientY])
 }
 //TouchEvent.touches destracturing
 const handleTouchMove = ({touches}) => {
@@ -51,7 +51,7 @@ return (
     <Wrapper onMouseMove={handleMove} onTouchMove={handleTouchMove}>
       <ImageContainer>
         {matrix.map(([x,y], index)=> (
-        <ImgBox x={x} y={y} key={index} />
+        <ImgBox x={x} y={y} key={index} percent={distance}/>
         ))}
       </ImageContainer>
     </Wrapper>
