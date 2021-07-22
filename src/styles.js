@@ -1,6 +1,14 @@
 import styled, {createGlobalStyle, css} from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
+@keyframes glow {
+  0%{
+    box-shadow:rgb(254,213, 186) 0 0 0px;
+  }  
+  100% {
+    box-shadow:rgb(254,213, 186) 0 1.5em 2.5em;
+  }
+}
 body {
   background: #262613;
   color: #FFFEF2;
@@ -24,15 +32,25 @@ export const Marginals = css `
   width: 100vw;
   z-index:1;
 `
-export const ImageContainer = styled.div`
+// $isTogether from App.jsx
+export const ImageContainer = styled.div.attrs(({$isTogether}) => ({
+  style: {
+    animation: $isTogether ? 'glow 3s infinite alternate' : 'none',
+  },
+}))`
   display: flex;
   flex-wrap: wrap;
   position: relative;
   // resized image to fit the grid 
   height: 600px;
-  width: 450px;
+  width: 400px;
 `
-export const Wrapper = styled.section `
+
+export const Wrapper = styled.section.attrs(({$color}) => ({
+  style: {
+    backgroundColor: `hsl(${$color}, 20%, 18%)`,
+  },
+}))`
   display: flex;
   align-items: center;
   justify-content: center;

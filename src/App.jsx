@@ -29,7 +29,7 @@ const calculateDistance = ([x,y]) => {
   const hypot = Math.hypot(center[0] - x, center[1] -y)
   // distance as % based on current and max values
   const distance = hypot / maxHypot
-  
+  //smooth the animation
   const easeDistance = easing(distance)
   setDistance(easeDistance)
 }
@@ -38,7 +38,7 @@ const calculateDistance = ([x,y]) => {
 const handleMove = ({clientX, clientY}) => {
   calculateDistance([clientX, clientY])
 }
-//TouchEvent.touches destracturing
+//TouchEvent.touches destructuring
 const handleTouchMove = ({touches}) => {
   calculateDistance([touches[0].clientX, touches[0].clientY])
 }
@@ -48,8 +48,12 @@ return (
     <GlobalStyle />
     <Header />
     <Footer />
-    <Wrapper onMouseMove={handleMove} onTouchMove={handleTouchMove}>
-      <ImageContainer>
+    <Wrapper 
+      onMouseMove={handleMove} 
+      onTouchMove={handleTouchMove}
+      $color={Math.round(200 - distance * 90)}
+      >
+      <ImageContainer $isTogether={distance < 0.001}>
         {matrix.map(([x,y], index)=> (
         <ImgBox x={x} y={y} key={index} percent={distance}/>
         ))}

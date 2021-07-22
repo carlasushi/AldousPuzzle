@@ -11,10 +11,14 @@ const ImgBox = ({x, y, percent}) => {
             Math.random() * 600 - y * 100 -50
         ])
     }, [x,y]) // dependency array for re-running
-    
-    // console.log(position)
-    
-    return <Image $initialX={x} $initialY={y} $movedX={position[0] * percent} $movedY={position[1] * percent}/>
+        //percent from app component 
+    return ( <Image 
+        $initialX={x} 
+        $initialY={y} 
+        $movedX={position[0] * percent} 
+        $movedY={position[1] * percent}
+        />
+    )
 }
     
 export default ImgBox
